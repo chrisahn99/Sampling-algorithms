@@ -3,7 +3,7 @@ import math
 import pygame
 
 
-class RRTMap:
+class SamplingMap:
   # Class to draw tbe map environment, where our robot will move. Includes 
   # functions that draw the path of the robot and generate the obstacles.
 
@@ -51,7 +51,7 @@ class RRTMap:
       pygame.draw.rect(self.map, self.grey, obstacle)
 
 
-class RRTGraph:
+class SamplingGraph:
   def __init__(self, start, goal, mapDim, obsDim, obsNum):
     (x,y)=start
     self.start=start
