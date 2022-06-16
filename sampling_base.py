@@ -205,7 +205,7 @@ class RRTGraph:
     self.connect(n1,n2)
 
 
-  def pathToGoal(self):
+  def pathToGoal(self):         # gets the path (node numbers) in the tree that goes from start to goal
     if self.goalFlag:
       self.path=[]
       self.path.append(self.goalState)
@@ -217,14 +217,14 @@ class RRTGraph:
     return self.goalFlag
 
 
-  def getPathCoords(self):
+  def getPathCoords(self):        # gets the path (coordinates) in the tree that goes from start to goal
     pathCoords=[]
     for node in self.path:
       x,y=(self.x[node],self.y[node])
       pathCoords.append((x,y))
     return pathCoords
 
-  def bias(self,ngoal):
+  def bias_RRT(self,ngoal):      # bias inspired by 1.2 that I added for RRT
     n=self.numberOfNodes()
     self.addNode(n,ngoal[0],ngoal[1])
     nnear=self.nearest(n)
@@ -241,7 +241,7 @@ class RRTGraph:
       self.extend(nnearest,n)
     return self.x,self.y,self.parent
   
-  def random_expand(self):
+  def random_expand(self):      # used for 1.1
     n=self.numberOfNodes()
     x,y=self.sample_envir()
     self.addNode(n,x,y)
@@ -250,7 +250,7 @@ class RRTGraph:
       self.extend(nrand,n)
     return self.x,self.y,self.parent
 
-  def knowledge_expand(self,ngoal):
+  def knowledge_expand(self,ngoal):     # used for 1.2
     n=self.numberOfNodes()
     x,y=self.sample_envir()
     self.addNode(n,x,y)
@@ -263,8 +263,4 @@ class RRTGraph:
           nnear=i
       self.extend(nnear,n)
     return self.x,self.y,self.parent
-
-  def cost(self):
-    pass
-
   
