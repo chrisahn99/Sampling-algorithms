@@ -1,6 +1,6 @@
 import pygame
-from RRTbase import RRTGraph
-from RRTbase import RRTMap
+from sampling_base import RRTGraph
+from sampling_base import RRTMap
 
 
 def main():
