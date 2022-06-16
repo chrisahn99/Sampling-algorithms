@@ -43,6 +43,12 @@ def main():
             running = False
 
 
-
 if __name__=="__main__":
-    main()
+  #Sometimes I get some unexpected errors. We restart when such an error happens.
+    result=False
+    while not result:
+      try:
+        main()
+        result=True
+      except:
+        result=False
