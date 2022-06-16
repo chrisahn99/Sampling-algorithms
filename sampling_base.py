@@ -183,7 +183,7 @@ class SamplingGraph:
       self.addEdge(n1,n2)
       return True
 
-  def step(self,n1,n2,dmax=35):      #dmax defines the step size
+  def step(self,n1,n2,dmax=80):      #dmax defines the step size
     d=self.distance(n1,n2)
     if d>dmax:
       (x1,y1)=(self.x[n1],self.y[n1])
