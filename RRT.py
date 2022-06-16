@@ -9,7 +9,6 @@ def main():
   goal=(900,700)
   obsdim=60
   obsnum=10
-  iteration=0
 
   pygame.init()
   map=SamplingMap(start,goal,dimensions,obsdim,obsnum)
@@ -26,7 +25,6 @@ def main():
                       map.edgeThickness)
       
     pygame.display.update()
-    iteration+=1
 
   map.drawPath(graph.getPathCoords())
   pygame.display.update()
