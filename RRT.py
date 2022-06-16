@@ -1,6 +1,6 @@
 import pygame
-from sampling_base import RRTGraph
-from sampling_base import RRTMap
+from sampling_base import SamplingGraph
+from sampling_base import SamplingMap
 
 
 def main():
@@ -12,8 +12,8 @@ def main():
   iteration=0
 
   pygame.init()
-  map=RRTMap(start,goal,dimensions,obsdim,obsnum)
-  graph=RRTGraph(start,goal,dimensions,obsdim,obsnum)
+  map=SamplingMap(start,goal,dimensions,obsdim,obsnum)
+  graph=SamplingGraph(start,goal,dimensions,obsdim,obsnum)
 
   obstacles=graph.makeObs()
   map.drawMap(obstacles)
